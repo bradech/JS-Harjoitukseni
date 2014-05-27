@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nyt koodataan!</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <style>
+        * {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+        }
+        body {
+            text-align:center;        
+    }
+        #laatikko {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;
+        }
+        #laatikko2 {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;            
+        }
+         #laatikko3 {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;            
+        }
+        .Keltainen {
+            background-color: yellow;
+        }
+        .Punainen {
+            background-color: red;
+        }
+        .Vihrea {
+            background-color: green;
+        }
+        .Valkoinen {
+            background-color: white;
+        }
+        
+        button {
+            background-color: lightgray;
+            border-style: solid;
+            border-radius: 4px;
+            border-color: #444444;
+            border-width: 1px;
+            padding: 5px;
+        }
+    </style>
+    <script>
+    var lastBtn;
+
+        function loremIpsum(elem) {
+            var loremIpsumWordBank = new Array("lorem","ipsum","dolor","sit","amet,","consectetur","adipisicing","elit,","sed","do","eiusmod","tempor","incididunt","ut","labore","et","dolore","magna","aliqua.","enim","ad","minim","veniam,","quis","nostrud","exercitation","ullamco","laboris","nisi","ut","aliquip","ex","ea","commodo","consequat.","duis","aute","irure","dolor","in","reprehenderit","in","voluptate","velit","esse","cillum","dolore","eu","fugiat","nulla","pariatur.","excepteur","sint","occaecat","cupidatat","non","proident,","sunt","in","culpa","qui","officia","deserunt","mollit","anim","id","est","laborum.","sed","ut","perspiciatis,","unde","omnis","iste","natus","error","sit","voluptatem","accusantium","doloremque","laudantium,","totam","rem","aperiam","eaque","ipsa,","quae","ab","illo","inventore","veritatis","et","quasi","architecto","beatae","vitae","dicta","sunt,","explicabo.","nemo","enim","ipsam","voluptatem,","quia","voluptas","sit,","aspernatur","aut","odit","aut","fugit,","sed","quia","consequuntur","magni","dolores","eos,","qui","ratione","voluptatem","sequi","nesciunt,","neque","porro","quisquam","est,","qui","dolorem","ipsum,","quia","dolor","sit,","amet,","consectetur,","adipisci","velit,","sed","quia","non","numquam","eius","modi","tempora","incidunt,","ut","labore","et","dolore","magnam","aliquam","quaerat","voluptatem.","ut","enim","ad","minima","veniam,","quis","nostrum","exercitationem","ullam","corporis","suscipit","laboriosam,","nisi","ut","aliquid","ex","ea","commodi","consequatur?","quis","autem","vel","eum","iure","reprehenderit,","qui","in","ea","voluptate","velit","esse,","quam","nihil","molestiae","consequatur,","vel","illum,","qui","dolorem","eum","fugiat,","quo","voluptas","nulla","pariatur?","at","vero","eos","et","accusamus","et","iusto","odio","dignissimos","ducimus,","qui","blanditiis","praesentium","voluptatum","deleniti","atque","corrupti,","quos","dolores","et","quas","molestias","excepturi","sint,","obcaecati","cupiditate","non","provident,","similique","sunt","in","culpa,","qui","officia","deserunt","mollitia","animi,","id","est","laborum","et","dolorum","fuga.","harum","quidem","rerum","facilis","est","et","expedita","distinctio.","Nam","libero","tempore,","cum","soluta","nobis","est","eligendi","optio,","cumque","nihil","impedit,","quo","minus","id,","quod","maxime","placeat,","facere","possimus,","omnis","voluptas","assumenda","est,","omnis","dolor","repellendus.","temporibus","autem","quibusdam","aut","officiis","debitis","aut","rerum","necessitatibus","saepe","eveniet,","ut","et","voluptates","repudiandae","sint","molestiae","non","recusandae.","itaque","earum","rerum","hic","tenetur","a","sapiente","delectus,","aut","reiciendis","voluptatibus","maiores","alias","consequatur","aut","perferendis","doloribus","asperiores","repellat");
+            var minWordCount = 15;
+            var maxWordCount = 100;
+
+            var randy = Math.floor(Math.random()*(maxWordCount - minWordCount)) + minWordCount;
+            var ret = "";
+            for(i = 0; i < randy; i++) {
+                var newTxt = loremIpsumWordBank[Math.floor(Math.random() * (loremIpsumWordBank.length - 1))];
+                if (ret.substring(ret.length-1,ret.length) == "." || ret.substring(ret.length-1,ret.length) == "?") {
+                    newTxt = newTxt.substring(0,1).toUpperCase() + newTxt.substring(1, newTxt.length);
+                }
+                ret += " " + newTxt;
+            }
+            document.getElementById(elem).innerHTML = document.getElementById(elem).innerHTML + "<p>Lorem ipsum " + ret.substring(0,ret.length-1) + ".</p>";
+        }
+        function keltaiseksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Keltainen"; 
+            if(lastBtn=="kelt"){
+                laatikko.className = "Valkoinen"; 
+                lastBtn="";
+            }else{
+                lastBtn="kelt";
+            }
+                       
+        }
+        function punaiseksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Punainen";
+            if(lastBtn=="pun"){
+                laatikko.className = "Valkoinen"; 
+                lastBtn="";
+            }else{
+                lastBtn="pun";  
+            }
+            
+        }
+        function vihreaksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Vihrea";
+            if(lastBtn=="vih"){
+                laatikko.className = "Valkoinen"; 
+                lastBtn="";
+            }else{
+                lastBtn="vih";  
+            }            
+        }
+        function kapeaksi(){ 
+            document.getElementById("laatikko2").style.width="50px";
+        }
+        function leveaksi(){ 
+            document.getElementById("laatikko2").style.width="200px";
+        }
+        function nayta(){
+            document.getElementById("laatikko3").style.width="200px";
+        }
+        function piilota(){
+            document.getElementById("laatikko3").style.width="50px";
+        }
+    </script>
+</head>
+<body>
+<h1>Nyt koodataan!</h1>
+
+<div id="laatikko"></div>
+<button type="button" onclick="keltaiseksi()">Keltaiseksi</button>
+<button type="button" onclick="punaiseksi()">Punaiseksi</button>
+<button type="button" onclick="vihreaksi()">Vihreaksi</button>
+<div id="laatikko2"></div>
+<button type="button" onclick="kapeaksi()">Kapeaksi</button>
+</body>
+<button type="button" onclick="leveaksi()">Leve&auml;ksi</button>
+<div id="laatikko3" onmouseover="nayta()" onmouseout="piilota()"></div>
+</body>
+</html>
